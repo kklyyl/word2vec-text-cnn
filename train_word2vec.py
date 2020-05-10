@@ -59,6 +59,7 @@ def train_word2vec(filenames):
     print("Training word2vec model cost %.3f seconds...\n" % (time.time() - t1))
 
 if __name__ == '__main__':
+    print("================gaoxin: word2vec ==============================")
     config=TextConfig()
     filenames=[config.train_filename,config.test_filename,config.val_filename]
     train_word2vec(filenames)

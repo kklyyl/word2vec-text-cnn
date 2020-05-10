@@ -8,7 +8,7 @@ class TextConfig():
     pre_trianing = None   #use vector_char trained by word2vec
 
     seq_length=600         #max length of sentence
-    num_classes=10         #number of labels
+    num_classes=35         #number of labels
 
     num_filters=128        #number of convolution kernel
     filter_sizes=[2,3,4]   #size of convolution kernel
@@ -24,9 +24,16 @@ class TextConfig():
     batch_size=64         #batch_size
     print_per_batch =100   #print result
 
-    train_filename='./data/cnews.train.txt'  #train data
-    test_filename='./data/cnews.test.txt'    #test data
-    val_filename='./data/cnews.val.txt'      #validation data
+    # train_filename='./data/cnews.train.txt'  #train data
+    # test_filename='./data/cnews.test.txt'    #test data
+    # val_filename='./data/cnews.val.txt'      #validation data
+    # vocab_filename='./data/vocab.txt'        #vocabulary
+    # vector_word_filename='./data/vector_word.txt'  #vector_word trained by word2vec
+    # vector_word_npz='./data/vector_word.npz'   # save vector_word to numpy file
+
+    train_filename='./data/v2.0Train.txt'  #train data
+    test_filename='./data/v2.0Test.txt'    #test data
+    val_filename='./data/v2.0Val.txt'      #validation data
     vocab_filename='./data/vocab.txt'        #vocabulary
     vector_word_filename='./data/vector_word.txt'  #vector_word trained by word2vec
     vector_word_npz='./data/vector_word.npz'   # save vector_word to numpy file
