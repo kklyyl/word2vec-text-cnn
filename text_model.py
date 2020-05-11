@@ -8,7 +8,7 @@ class TextConfig():
     pre_trianing = None   #use vector_char trained by word2vec
 
     seq_length=600         #max length of sentence
-    num_classes=35         #number of labels
+    num_classes=34         #number of labels
 
     num_filters=128        #number of convolution kernel
     filter_sizes=[2,3,4]   #size of convolution kernel

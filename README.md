@@ -5,6 +5,8 @@
 训练结果较第一版有所提升，验证集准确率从96.5%达到97.1%，测试准确率从96.7%达到97.2%。<br>
 <br>
 
+Epoch: 10
+step: 1000,train loss: 1.567, train accuracy: 0.578, val loss: 2.475, val accuracy: 0.340,training speed: 0.784sec/batch *
 
 本实验的主要目是为了探究基于Word2vec训练的词向量嵌入CNN后，对模型的影响，实验结果得到的模型在验证集达到97.1%的效果，gaussic大牛为94.12%；<br><br>
 更多详细可以阅读gaussic大牛的博客：[text-classification-cnn-rnn](https://github.com/gaussic/text-classification-cnn-rnn)<br><br>

@@ -20,16 +20,41 @@ def predict(sentences):
 
     _,word_to_id=read_vocab(config.vocab_filename)
     input_x= process_file(sentences,word_to_id,max_length=config.seq_length)
-    labels = {0:'体育',
-              1:'财经',
-              2:'房产',
-              3:'家居',
-              4:'教育',
-              5:'科技',
-              6:'时尚',
-              7:'时政',
-              8:'游戏',
-              9:'娱乐'
+
+    labels = {0:'儿科',
+              1:'耳鼻咽喉科',
+              2:'风湿免疫科',
+              3:'妇产科',
+              4:'感染科 传染科',
+              5:'骨科',
+              6:'呼吸内科',
+              7:'乳腺外科',
+              8:'精神心理科',
+              9:'口腔科',
+              10:'泌尿外科',
+              12:'内分泌科',
+              13:'皮肤科',
+              14:'普通内科',
+              15:'普外科',
+              16:'神经内科',
+              17:'神经外科',
+              18:'疼痛科 麻醉科',
+              19:'消化内科',
+              20:'心血管内科',
+              21:'性病科',
+              22:'血液科',
+              23:'眼科',
+              24:'疫苗科',
+              25:'影像检验科',
+              26:'肿瘤科',
+              27:'肛肠外科',
+              28:'中医科',
+              29:'胸外科',
+              30:'烧伤科',
+              31:'整形科',
+              32:'肝胆外科',
+              33:'急诊科',
+              34:'头颈外科'
               }
 
     feed_dict = {
@@ -115,7 +140,7 @@ if __name__ == '__main__':
     import random
     sentences=[]
     labels=[]
-    with codecs.open('./data/cnews.test.txt','r',encoding='utf-8') as f:
+    with codecs.open('./data/v2.0Test.txt','r',encoding='utf-8') as f:
         sample=random.sample(f.readlines(),5)
         for line in sample:
             try:
