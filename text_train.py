@@ -49,6 +49,11 @@ def train():
     start_time = time.time()
     x_train, y_train = process_file(config.train_filename, word_to_id, cat_to_id, config.seq_length)
     x_val, y_val = process_file(config.val_filename, word_to_id, cat_to_id, config.seq_length)
+    #print("数组的维度数目",x_val.shape,y_val.shape)
+    #print("y_train",x_train.shape,y_train.shape)
+    print("取出xtrain[6459][600]的第一行",x_train[0,:])
+    print("取出y_train[6459][34]的第一行",y_train[0,:]) #儿科
+
     print("Time cost: %.3f seconds...\n" % (time.time() - start_time))
 
     tf.summary.scalar("loss", model.loss)
@@ -69,6 +74,8 @@ def train():
 
     for epoch in range(config.num_epochs):
         batch_train = batch_iter(x_train, y_train, config.batch_size)
+        #print("========",x_train,"++++++++",y_train)
+        '''
         start = time.time()
         print('Epoch:', epoch + 1)
         for x_batch, y_batch in batch_train:
@@ -101,6 +108,7 @@ def train():
         if flag:
             break
         config.lr *= config.lr_decay
+        '''
 
 if __name__ == '__main__':
     print('Configuring CNN model...')

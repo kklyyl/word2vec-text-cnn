@@ -10,7 +10,7 @@ from gensim.models import word2vec
 class TextConfig():
 
     embedding_size=100     #dimension of word embedding
-    vocab_size=8000        #number of vocabulary
+    vocab_size=8000        #vocab.txt大小 用来干啥的？
     pre_trianing = None   #use vector_char trained by word2vec
 
     seq_length=600         #max length of sentence
@@ -80,9 +80,11 @@ def train_word2vec(filenames):
 
     '''
     t1 = time.time()
+    #生成一个数组可以遍历[] 
     sentences = Get_Sentences(filenames)
-    logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
+    #logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
     model = word2vec.Word2Vec(sentences, size=100, window=5, min_count=1, workers=6)
+    print(sentences)
     model.wv.save_word2vec_format(config.vector_word_filename, binary=False)
     print('-------------------------------------------')
     print("Training word2vec model cost %.3f seconds...\n" % (time.time() - t1))
@@ -93,4 +95,3 @@ if __name__ == '__main__':
     
     filenames=[config.train_filename,config.test_filename,config.val_filename]
     train_word2vec(filenames)
-
