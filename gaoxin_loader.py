@@ -6,7 +6,6 @@ import codecs
 import re
 import jieba
 
-
 def read_file(filename):
     """
     Args:
@@ -15,7 +14,7 @@ def read_file(filename):
         two list where the first is lables and the second is contents cut by jieba
         
     """
-    re_han = re.compile(u"([\u4E00-\u9FD5a-zA-Z]+)")  # the method of cutting text by punctuation
+    re_han = re.compile(u"([\u4E00-\u9FD5a-zA-Z0-9]+)")  # the method of cutting text by punctuation
     contents,labels=[],[]
     with codecs.open(filename,'r',encoding='utf-8') as f:
         for line in f:
@@ -24,19 +23,11 @@ def read_file(filename):
                 assert len(line.split('\t'))==2
                 label,content=line.split('\t')
                 labels.append(label)
-
-                print(content)
-                print(type(content))
                 blocks = re_han.split(content)
-                print(type(blocks))
-                print(blocks)
-
-
                 word = []
                 for blk in blocks:
-                    #if re_han.match(blk):
+                    if re_han.match(blk):
                         for w in jieba.cut(blk):
-                            #if len(w)>=2:
                                 word.append(w)
                 print(word)
                 contents.append(word)
@@ -48,10 +39,6 @@ def read_file(filename):
 labels,contents = read_file('./testdata/val.txt')
 print("-----------------------------------------")
 print(contents)
-
-
-
-
 
 def build_vocab(filenames,vocab_dir,vocab_size=8000):
     """

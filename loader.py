@@ -15,7 +15,7 @@ def read_file(filename):
         two list where the first is lables and the second is contents cut by jieba
         
     """
-    re_han = re.compile(u"([\u4E00-\u9FD5a-zA-Z]+)")  # the method of cutting text by punctuation
+    re_han = re.compile(u"([\u4E00-\u9FD5a-zA-Z0-9]+)")  # the method of cutting text by punctuation
     contents,labels=[],[]
     with codecs.open(filename,'r',encoding='utf-8') as f:
         for line in f:
@@ -27,7 +27,7 @@ def read_file(filename):
                 blocks = re_han.split(content)
                 word = []
                 for blk in blocks:
-                    #if re_han.match(blk):
+                    if re_han.match(blk):
                         for w in jieba.cut(blk):
                             #if len(w)>=2:
                                 word.append(w)

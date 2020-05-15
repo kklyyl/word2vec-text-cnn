@@ -37,7 +37,7 @@ class TextConfig():
     vector_word_filename='./testdata/vector_word.txt'  #vector_word trained by word2vec
     vector_word_npz='./testdata/vector_word.npz'   # save vector_word to numpy file
 
-re_han= re.compile(u"([\u4E00-\u9FD5a-zA-Z]+)") # the method of cutting text by punctuation
+re_han= re.compile(u"([\u4E00-\u9FD5a-zA-Z0-9]+)") # the method of cutting text by punctuation
 
 class Get_Sentences(object):
     '''
@@ -62,14 +62,11 @@ class Get_Sentences(object):
                             line=line.split('\t')
                             assert len(line)==2
                             blocks=re_han.split(line[1])
-                            print("blocks",blocks)
                             word=[]
                             for blk in blocks:
-                                #if re_han.match(blk):
+                                if re_han.match(blk):
                                     word.extend(jieba.lcut(blk))
-                                    print("---------------------------")
-                                    print(word)
-                            
+                            print(word)
                             yield word
                         except:
                             pass

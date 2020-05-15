@@ -9,7 +9,7 @@ from gensim.models import word2vec
 from text_model import TextConfig
 
 
-re_han= re.compile(u"([\u4E00-\u9FD5a-zA-Z]+)") # the method of cutting text by punctuation
+re_han= re.compile(u"([\u4E00-\u9FD5a-zA-Z0-9]+)") # the method of cutting text by punctuation
 
 class Get_Sentences(object):
     '''
@@ -35,7 +35,7 @@ class Get_Sentences(object):
                         blocks=re_han.split(line[1])
                         word=[]
                         for blk in blocks:
-                            #if re_han.match(blk):
+                            if re_han.match(blk):
                                 word.extend(jieba.lcut(blk))
                         yield word
                     except:
