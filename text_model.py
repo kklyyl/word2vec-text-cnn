@@ -7,7 +7,7 @@ class TextConfig():
     vocab_size=8000        #number of vocabulary
     pre_trianing = None   #use vector_char trained by word2vec
 
-    seq_length=600         #max length of sentence
+    seq_length=300         #max length of sentence
     num_classes=34         #number of labels
 
     num_filters=128        #number of convolution kernel

@@ -27,9 +27,9 @@ def read_file(filename):
                 blocks = re_han.split(content)
                 word = []
                 for blk in blocks:
-                    if re_han.match(blk):
+                    #if re_han.match(blk):
                         for w in jieba.cut(blk):
-                            if len(w)>=2:
+                            #if len(w)>=2:
                                 word.append(w)
                 contents.append(word)
             except:
@@ -46,6 +46,7 @@ def build_vocab(filenames,vocab_dir,vocab_size=8000):
         writting vocab to vocab_filename
 
     """
+    vocab_size=25000
     all_data = []
     for filename in filenames:
         _,data_train=read_file(filename)

@@ -35,7 +35,7 @@ class Get_Sentences(object):
                         blocks=re_han.split(line[1])
                         word=[]
                         for blk in blocks:
-                            if re_han.match(blk):
+                            #if re_han.match(blk):
                                 word.extend(jieba.lcut(blk))
                         yield word
                     except:

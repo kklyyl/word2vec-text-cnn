@@ -54,20 +54,40 @@ class Get_Sentences(object):
 
     def __iter__(self):
         for filename in self.filenames:
-            with codecs.open(filename, 'r', encoding='utf-8') as f:
-                for _,line in enumerate(f):
-                    try:
-                        line=line.strip()
-                        line=line.split('\t')
-                        assert len(line)==2
-                        blocks=re_han.split(line[1])
-                        word=[]
-                        for blk in blocks:
-                            if re_han.match(blk):
-                                word.extend(jieba.lcut(blk))
-                        yield word
-                    except:
-                        pass
+            if(filename == './testdata/val.txt'):
+                with codecs.open(filename, 'r', encoding='utf-8') as f:
+                    for _,line in enumerate(f):
+                        try:
+                            line=line.strip()
+                            line=line.split('\t')
+                            assert len(line)==2
+                            blocks=re_han.split(line[1])
+                            print("blocks",blocks)
+                            word=[]
+                            for blk in blocks:
+                                #if re_han.match(blk):
+                                    word.extend(jieba.lcut(blk))
+                                    print("---------------------------")
+                                    print(word)
+                            
+                            yield word
+                        except:
+                            pass
+            else:
+                with codecs.open(filename, 'r', encoding='utf-8') as f:
+                    for _,line in enumerate(f):
+                        try:
+                            line=line.strip()
+                            line=line.split('\t')
+                            assert len(line)==2
+                            blocks=re_han.split(line[1])
+                            word=[]
+                            for blk in blocks:
+                                if re_han.match(blk):
+                                    word.extend(jieba.lcut(blk))
+                            yield word
+                        except:
+                            pass
 
 def train_word2vec(filenames):
     
@@ -84,7 +104,6 @@ def train_word2vec(filenames):
     sentences = Get_Sentences(filenames)
     #logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
     model = word2vec.Word2Vec(sentences, size=100, window=5, min_count=1, workers=6)
-    print(sentences)
     model.wv.save_word2vec_format(config.vector_word_filename, binary=False)
     print('-------------------------------------------')
     print("Training word2vec model cost %.3f seconds...\n" % (time.time() - t1))
