@@ -4,10 +4,10 @@ import  tensorflow as tf
 class TextConfig():
 
     embedding_size=100     #dimension of word embedding
-    vocab_size=8000        #number of vocabulary
+    vocab_size=23051        #number of vocabulary
     pre_trianing = None   #use vector_char trained by word2vec
 
-    seq_length=300         #max length of sentence
+    seq_length=256         #max length of sentence
     num_classes=34         #number of labels
 
     num_filters=128        #number of convolution kernel
@@ -20,16 +20,9 @@ class TextConfig():
     clip= 6.0              #gradient clipping threshold
     l2_reg_lambda=0.01     #l2 regularization lambda
 
-    num_epochs=15          #epochs
+    num_epochs=30       #epochs
     batch_size=64         #batch_size
     print_per_batch =100   #print result
-
-    # train_filename='./data/cnews.train.txt'  #train data
-    # test_filename='./data/cnews.test.txt'    #test data
-    # val_filename='./data/cnews.val.txt'      #validation data
-    # vocab_filename='./data/vocab.txt'        #vocabulary
-    # vector_word_filename='./data/vector_word.txt'  #vector_word trained by word2vec
-    # vector_word_npz='./data/vector_word.npz'   # save vector_word to numpy file
 
     train_filename='./data/v2.0Train.txt'  #train data
     test_filename='./data/v2.0Test.txt'    #test data

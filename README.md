@@ -16,3 +16,10 @@ train acc 0.45；val acc 0.27；test acc 0.25
 train acc 0.89；val acc 0.35；test acc 0.36
 更改条件：1.Epoch更改为15轮；2.去掉了标点符号；
 ```
+#### 第4次训练:
+```
+train acc 0.96；val acc 0.43；test acc 0.43
+更改条件：1.Epoch更改为30轮；2.x_text维度降为300降为256 3.predict时把vocab_size改成词典大小23051；
+实验效果：20轮训练以后 val acc 逐渐趋紧0.44-0.46左右；val acc上升速度很慢；随机抽取十个数据并不能达到40%的准确度
+
+```

@@ -36,7 +36,7 @@ def read_file(filename):
                 pass
     return labels,contents
 
-def build_vocab(filenames,vocab_dir,vocab_size=8000):
+def build_vocab(filenames,vocab_dir,vocab_size=23051):
     """
     Args:
         filename:trian_filename,test_filename,val_filename
@@ -46,7 +46,6 @@ def build_vocab(filenames,vocab_dir,vocab_size=8000):
         writting vocab to vocab_filename
 
     """
-    vocab_size=25000
     all_data = []
     for filename in filenames:
         _,data_train=read_file(filename)

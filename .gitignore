@@ -8,7 +8,7 @@ tensorboard/
 checkpoints/
 # C extensions
 *.so
-
+testdata/
 # Distribution / packaging
 .Python
 build/
