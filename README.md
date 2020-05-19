@@ -30,5 +30,5 @@ train acc 0.96；val acc 0.43；test acc 0.43
 cnn: train acc 0.57；val acc 0.56；test acc 0.56
 rnn: train acc 0.47；val acc 0.37；test acc 0.37 （epoch:10 实际5）
 rnn: train acc 0.79；val acc 0.40；test acc 0.40 （epoch:20 实际10）
-查找原因
+rnn比CNN模型要慢几倍到十几倍。因为，后一个时间步的输出依赖于前一个时间步的输出，无法进行并行处理，导致模型训练的速度慢，且准确度较低，所以实验舍弃使用rnn模型。
 ```
