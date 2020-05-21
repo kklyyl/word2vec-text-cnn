@@ -21,10 +21,14 @@ train acc 0.89；val acc 0.35；test acc 0.36
 train acc 0.96；val acc 0.43；test acc 0.43
 更改条件：1.Epoch更改为30轮；2.x_text维度降为300降为256 3.predict时把vocab_size改成词典大小23051；
 实验效果：20轮训练以后 val acc 逐渐趋紧0.44-0.46左右；val acc上升速度很慢；随机抽取十个数据并不能达到40%的准确度
-
+```
+#### 第5次训练:
+```
+数据量拓展一倍以后的训练
+step: 1600,train loss: 1.245, train accuracy: 0.625, val loss: 1.982, val accuracy: 0.474*
 ```
 
-### 原始模型训练记录（字符集文本表示+textcnn+textrnn）
+# 原始模型训练记录（字符集文本表示+textcnn+textrnn）
 ```
 cnn: train acc 0.64；val acc 0.57；test acc 0.56
 rnn: train acc 0.47；val acc 0.37；test acc 0.37 （epoch:10 实际5）
