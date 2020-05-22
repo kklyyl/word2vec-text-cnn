@@ -1,6 +1,10 @@
 # Text classification with CNN and Word2vec
+### 分支记录
+- 主分支：master 
+- v2.0master: 2.0版本数据实验
+- v3.0master: 3.0版本实验
 
-### 训练记录
+### 2.0训练记录
 #### 第1次训练:
 ```
 train acc 0.48；val acc 0.37；test acc 0.35

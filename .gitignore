@@ -9,6 +9,7 @@ checkpoints/
 # C extensions
 *.so
 testdata/
+data/
 # Distribution / packaging
 .Python
 build/
