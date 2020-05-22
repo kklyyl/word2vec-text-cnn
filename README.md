@@ -5,6 +5,9 @@
 Epoch: 15
 step: 2400,train loss: 0.677, train accuracy: 0.828, val loss: 1.886, val accuracy: 0.507 *
 ```
+```
+epoch=30 测试出来为了，防止过拟合epoch不应超过10；
+```
 
 ### 2.0训练记录
 #### 第1次训练:
