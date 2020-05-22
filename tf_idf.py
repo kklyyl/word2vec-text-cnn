@@ -1,6 +1,6 @@
-
 import jieba
 import jieba.posseg as pseg
+import numpy as np
 import os
 import sys
 from sklearn import feature_extraction
@@ -19,8 +19,14 @@ if __name__ == "__main__":
     tfidf = transformer.fit_transform(cv_fit)#输入词频矩阵转化为对应的tf-idf值
     result_arr = tfidf.toarray()
     #print (len(result_arr),result_arr.shape)
-
+    tf_idf=[]
     for i in range(len(result_arr)):
         print("-------这里输出第",i,"行文本的词语tf-idf权重------")
+        arri=[]
         for j in range(len(voacb_list)):
             print (voacb_list[j],result_arr[i][j])
+            arri.append(result_arr[i][j])
+            
+        tf_idf.append(arri)
+    print(tf_idf)
+    print(np.array(tf_idf))

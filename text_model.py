@@ -20,7 +20,7 @@ class TextConfig():
     clip= 6.0              #gradient clipping threshold
     l2_reg_lambda=0.01     #l2 regularization lambda
 
-    num_epochs=10         #epochs
+    num_epochs=1         #epochs
     batch_size=64         #batch_size
     print_per_batch =100   #print result
 

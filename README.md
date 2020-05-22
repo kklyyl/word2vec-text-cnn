@@ -8,6 +8,13 @@ step: 2400,train loss: 0.677, train accuracy: 0.828, val loss: 1.886, val accura
 ```
 epoch=30 测试出来为了，防止过拟合epoch不应超过10；
 ```
+```
+添加维度问题：
+ValueError: Cannot feed value of shape (64, 26568) for Tensor 'input_x:0', which has shape '(?, 256)'
+构建好的词典 26568 ----train
+构建好的词典 30331 ----val
+查阅相关文献以后发现，tf-idf用来做分类主要是用于做机器学习，深度学习特征提取在卷积中进行。
+```
 
 ### 2.0训练记录
 #### 第1次训练:

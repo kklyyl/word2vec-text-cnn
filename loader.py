@@ -5,7 +5,32 @@ import numpy as np
 import codecs
 import re
 import jieba
-
+from sklearn import feature_extraction
+from sklearn.feature_extraction.text import TfidfTransformer
+from sklearn.feature_extraction.text import CountVectorizer
+corpus=[]
+def content_tf_idf(contents):
+    for k in range(len(contents)):
+        corpus_str=" ".join([str(x) for x in contents[k]])
+        corpus.append(corpus_str)
+    cv=CountVectorizer(token_pattern='[\u4e00-\u9fa5_a-zA-Z0-9]{1,}')  #匹配单个文字
+    cv_fit=cv.fit_transform(corpus)
+    voacb_list=cv.get_feature_names()
+    print("构建好的词典",len(voacb_list))
+    transformer = TfidfTransformer() #该类会统计每个词语的tf-idf权值
+    tfidf = transformer.fit_transform(cv_fit)#输入词频矩阵转化为对应的tf-idf值
+    result_arr = tfidf.toarray()
+    tf_idf=[]
+    for i in range(len(result_arr)):
+        arri=[]
+        for j in range(len(voacb_list)):
+            #print (voacb_list[j],result_arr[i][j])
+            arri.append(result_arr[i][j])
+            
+        tf_idf.append(arri)
+    #print(tf_idf)
+    #print(np.array(tf_idf))
+    return np.array(tf_idf)
 
 def read_file(filename):
     """
@@ -109,7 +134,8 @@ def process_file(filename,word_to_id,cat_to_id,max_length=600):
     for i in range(len(contents)):
         data_id.append([word_to_id[x] for x in contents[i] if x in word_to_id])
         label_id.append(cat_to_id[labels[i]])
-    x_pad=kr.preprocessing.sequence.pad_sequences(data_id,max_length,padding='post', truncating='post')
+    #x_pad=kr.preprocessing.sequence.pad_sequences(data_id,max_length,padding='post', truncating='post')
+    x_pad=content_tf_idf(contents)
     y_pad=kr.utils.to_categorical(label_id)
     return x_pad,y_pad
 
