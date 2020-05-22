@@ -71,10 +71,10 @@ def train():
     last_improved = 0  # record global_step at best_val_accuracy
     require_improvement = 1000  # break training if not having improvement over 1000 iter
     flag=False
-
+    val_arr =[]
+    train_arr = []
     for epoch in range(config.num_epochs):
         batch_train = batch_iter(x_train, y_train, config.batch_size)
-        #print("========",x_train,"++++++++",y_train)
         start = time.time()
         print('Epoch:', epoch + 1)
         for x_batch, y_batch in batch_train:
@@ -98,6 +98,10 @@ def train():
                 print("step: {},train loss: {:.3f}, train accuracy: {:.3f}, val loss: {:.3f}, val accuracy: {:.3f},training speed: {:.3f}sec/batch {}\n".format(
                         global_step, train_loss, train_accuracy, val_loss, val_accuracy,
                         (end - start) / config.print_per_batch,improved_str))
+                val_arr.append(round(val_accuracy,2))
+                train_arr.append(round(train_accuracy,2))
+                if epoch == config.num_epochs:
+                    print(val_arr,train_arr)
                 start = time.time()
 
             if global_step - last_improved > require_improvement:
@@ -107,8 +111,7 @@ def train():
         if flag:
             break
         config.lr *= config.lr_decay
-        
-
+    
 if __name__ == '__main__':
     print('Configuring CNN model...')
     config = TextConfig()

@@ -140,8 +140,8 @@ if __name__ == '__main__':
     import random
     sentences=[]
     labels=[]
-    with codecs.open('./data/v2.0Test.txt','r',encoding='utf-8') as f:
-        sample=random.sample(f.readlines(),5)
+    with codecs.open('./data/v3.0Test.txt','r',encoding='utf-8') as f:
+        sample=random.sample(f.readlines(),10)
         for line in sample:
             try:
                 line=line.rstrip().split('\t')
@@ -153,7 +153,7 @@ if __name__ == '__main__':
     cat=predict(sentences)
     for i,sentence in enumerate(sentences,0):
         print ('----------------------the text-------------------------')
-        print (sentence[:50]+'....')
+        print (sentence[:]+'')
         print('the orginal label:%s'%labels[i])
         print('the predict label:%s'%cat[i])
 
