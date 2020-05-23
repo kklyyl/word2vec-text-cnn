@@ -134,8 +134,8 @@ def process_file(filename,word_to_id,cat_to_id,max_length=600):
     for i in range(len(contents)):
         data_id.append([word_to_id[x] for x in contents[i] if x in word_to_id])
         label_id.append(cat_to_id[labels[i]])
-    #x_pad=kr.preprocessing.sequence.pad_sequences(data_id,max_length,padding='post', truncating='post')
-    x_pad=content_tf_idf(contents)
+    x_pad=kr.preprocessing.sequence.pad_sequences(data_id,max_length,padding='post', truncating='post')
+    #x_pad=content_tf_idf(contents)
     y_pad=kr.utils.to_categorical(label_id)
     return x_pad,y_pad
 
