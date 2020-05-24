@@ -20,7 +20,7 @@ class TextConfig():
     clip= 6.0              #gradient clipping threshold
     l2_reg_lambda=0.01     #l2 regularization lambda
 
-    num_epochs=1         #epochs
+    num_epochs=10         #epochs
     batch_size=64         #batch_size
     print_per_batch =100   #print result
 
@@ -78,7 +78,6 @@ class TextCNN(object):
             num_filters_total = self.config.num_filters * len(self.config.filter_sizes)
             self.h_pool = tf.concat(pooled_outputs, 3)
             self.outputs= tf.reshape(self.h_pool, [-1, num_filters_total])
-
 
         with tf.name_scope("dropout"):
             self.final_output = tf.nn.dropout(self.outputs, self.keep_prob)
