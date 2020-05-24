@@ -1,6 +1,12 @@
 # Text classification with CNN and Word2vec
 
 ### 3.0训练记录：
+#### 第1次训练:
+```
+经过word2vec加权的，3.0一万条数据，epoch=10，训练结果如下：
+step: 1600,train loss: 1.232, train accuracy: 0.703, val loss: 2.011, val accuracy: 0.465
+Test Loss:    2.1, Test Acc:  45.59%
+```
 ```
 Epoch: 15
 step: 2400,train loss: 0.677, train accuracy: 0.828, val loss: 1.886, val accuracy: 0.507 *
