@@ -4,7 +4,7 @@ import  tensorflow as tf
 class TextConfig():
 
     embedding_size=100     #dimension of word embedding
-    vocab_size=33209        #number of vocabulary
+    vocab_size=33203        #number of vocabulary
     pre_trianing = None   #use vector_char trained by word2vec
 
     seq_length=256         #max length of sentence
